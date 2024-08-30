@@ -12,11 +12,11 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Routes);
 
-// app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+res.sendFile(path.join(__dirname, "./client/build/index.html"));
+ });
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
